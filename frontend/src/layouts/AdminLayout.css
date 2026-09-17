@@ -1,0 +1,287 @@
+/* ═══════════════════════════════════════════════════════
+   ADMIN LAYOUT
+═══════════════════════════════════════════════════════ */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+
+.admin-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  display: none;
+}
+
+/* ── Sidebar ── */
+.admin-sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  transition: transform var(--transition-base);
+  overflow: hidden;
+}
+
+.admin-layout--closed .admin-sidebar {
+  transform: translateX(calc(-1 * var(--sidebar-width)));
+}
+
+.admin-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-5);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-sidebar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.admin-sidebar__logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.admin-sidebar__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.admin-sidebar__logo-text span {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: #fff;
+}
+
+.admin-sidebar__logo-text small {
+  font-size: 10px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+.admin-sidebar__close {
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+  display: none;
+}
+
+.admin-sidebar__close:hover { color: #fff; }
+
+/* ── Nav ── */
+.admin-sidebar__nav {
+  flex: 1;
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.admin-sidebar__link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+.admin-sidebar__link--active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  box-shadow: 0 4px 12px rgba(30,136,229,0.25);
+}
+
+.admin-sidebar__link-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.admin-sidebar__badge {
+  margin-left: auto;
+  background: var(--error);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  min-width: 20px;
+  text-align: center;
+}
+
+.admin-sidebar__footer {
+  padding: var(--space-3);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-sidebar__logout { color: #fca5a5; }
+.admin-sidebar__logout:hover { color: var(--error); background: rgba(239,68,68,0.1); }
+
+/* ── Main ── */
+.admin-main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left var(--transition-base);
+}
+
+.admin-layout--closed .admin-main {
+  margin-left: 0;
+}
+
+/* ── Header ── */
+.admin-header {
+  height: var(--admin-header-h);
+  background: #fff;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-header__toggle {
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.admin-header__toggle:hover { background: var(--gray-100); }
+
+.admin-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.admin-header__notif {
+  position: relative;
+  color: var(--gray-600);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.admin-header__notif:hover { background: var(--gray-100); color: var(--gray-800); }
+
+.admin-header__notif-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--error);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-header__admin {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.admin-header__avatar {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.admin-header__name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+/* ── Content ── */
+.admin-content {
+  flex: 1;
+  padding: var(--space-6);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+  }
+  .admin-layout--open .admin-sidebar {
+    transform: translateX(0);
+  }
+  .admin-layout--open .admin-overlay { display: block; }
+  .admin-main { margin-left: 0 !important; }
+  .admin-sidebar__close { display: flex; }
+}
+
+@media (max-width: 480px) {
+  .admin-content { padding: var(--space-4); }
+  .admin-header__name { display: none; }
+}

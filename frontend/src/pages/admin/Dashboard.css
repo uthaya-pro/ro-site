@@ -1,0 +1,173 @@
+.dashboard__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.dashboard__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.dashboard__subtitle {
+  color: var(--gray-500);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-1);
+}
+
+.dashboard__time {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+/* Stat Cards */
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.stat-card__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--card-color) 12%, transparent);
+  color: var(--card-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.stat-card__label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.stat-card__value {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--gray-900);
+  line-height: 1;
+}
+
+.stat-card__sub {
+  font-size: var(--font-size-xs);
+  color: var(--gray-400);
+  margin-top: var(--space-1);
+}
+
+/* Row layout */
+.dashboard__row {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.dashboard__chart-card,
+.dashboard__status-card,
+.dashboard__recent-card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+}
+
+.dashboard__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.dashboard__card-header h2 {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.dashboard__view-all {
+  font-size: var(--font-size-sm);
+  color: var(--primary-600);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dashboard__view-all:hover { text-decoration: underline; }
+
+.dashboard__status-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.dashboard__status-item:last-child { border-bottom: none; }
+.dashboard__status-count { font-size: var(--font-size-lg); font-weight: 800; color: var(--gray-800); }
+
+/* Table */
+.dashboard__enquiries-table { overflow-x: auto; }
+
+.dashboard__enquiries-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.dashboard__enquiries-table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.dashboard__enquiries-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-700);
+}
+
+.dashboard__enquiries-table tr:last-child td { border-bottom: none; }
+
+@media (max-width: 1200px) { .dashboard__stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+  .dashboard__row { grid-template-columns: 1fr; }
+  .dashboard__stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) { .dashboard__stats { grid-template-columns: 1fr; } }

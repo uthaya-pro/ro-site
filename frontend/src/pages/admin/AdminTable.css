@@ -1,0 +1,170 @@
+/* ══════════════════════════════════════════
+   SHARED ADMIN PAGE STYLES
+══════════════════════════════════════════ */
+.admin-page { display: flex; flex-direction: column; gap: var(--space-6); }
+
+.admin-page__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.admin-page__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.admin-page__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--gray-400);
+  margin-top: var(--space-1);
+}
+
+/* Card */
+.admin-table-card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  overflow: hidden;
+}
+
+.admin-table-card__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--gray-100);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.admin-search {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 360px;
+}
+
+.admin-search__icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  pointer-events: none;
+  font-size: 13px;
+}
+
+.admin-search__input { padding-left: 36px; }
+.admin-table-count { font-size: var(--font-size-sm); color: var(--gray-400); white-space: nowrap; }
+
+/* Table */
+.admin-table-wrap { overflow-x: auto; }
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.admin-table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-700);
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover td { background: var(--gray-50); }
+
+/* Product cell */
+.admin-table-product {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.admin-table-product__img {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  background: var(--gray-100);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.admin-table-product__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-table-product { flex-direction: column; align-items: flex-start; }
+.admin-table-product { flex-direction: row; align-items: center; }
+
+.admin-table-product strong {
+  display: block;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.admin-table-product__desc {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--gray-400);
+  margin-top: 2px;
+}
+
+/* Actions */
+.admin-table-actions { display: flex; gap: var(--space-2); align-items: center; }
+
+.admin-table-action {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.admin-table-action:hover { transform: scale(1.1); }
+.admin-table-action--primary { background: var(--primary-50); color: var(--primary-600); }
+.admin-table-action--primary:hover { background: var(--primary-100); }
+.admin-table-action--danger  { background: #fee2e2; color: #dc2626; }
+.admin-table-action--danger:hover { background: #fecaca; }
+.admin-table-action--success { background: #d1fae5; color: #059669; }
+.admin-table-action--success:hover { background: #a7f3d0; }
+.admin-table-action--warning { background: #fef3c7; color: #d97706; }
+.admin-table-action--warning:hover { background: #fde68a; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-table td, .admin-table th { padding: var(--space-2) var(--space-3); }
+}
