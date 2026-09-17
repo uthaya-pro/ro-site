@@ -50,13 +50,26 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           // Manual chunk splitting — keeps vendor libs separate for better caching
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom'],
-            'router': ['react-router-dom'],
-            'charts': ['recharts'],
-            'forms': ['react-hook-form'],
-            'ui': ['react-hot-toast', 'react-icons'],
-            'http': ['axios'],
+          // rolldown (Vite 8) requires manualChunks to be a function, not an object
+          manualChunks(id) {
+            if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) {
+              return 'react-vendor'
+            }
+            if (id.includes('node_modules/react-router-dom') || id.includes('node_modules/react-router/')) {
+              return 'router'
+            }
+            if (id.includes('node_modules/recharts')) {
+              return 'charts'
+            }
+            if (id.includes('node_modules/react-hook-form')) {
+              return 'forms'
+            }
+            if (id.includes('node_modules/react-hot-toast') || id.includes('node_modules/react-icons')) {
+              return 'ui'
+            }
+            if (id.includes('node_modules/axios')) {
+              return 'http'
+            }
           },
           // Content-hash filenames for long-term caching
           chunkFileNames: 'assets/js/[name]-[hash].js',
