@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes, FaPhone, FaWater } from 'react-icons/fa';
+import { FaBars, FaTimes, FaPhone, FaWater, FaLock } from 'react-icons/fa';
 import { useSettings } from '../../context/SettingsContext';
 import './Navbar.css';
 
@@ -60,6 +60,10 @@ const Navbar = () => {
             </a>
           )}
           <Link to="/contact" className="btn btn-primary btn-sm">Get Quote</Link>
+          <Link to="/admin/login" className="navbar__admin-btn" title="Admin Panel" id="admin-panel-btn">
+            <FaLock size={13} />
+            <span>Admin</span>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -88,6 +92,10 @@ const Navbar = () => {
           ))}
           <Link to="/contact" className="btn btn-primary" style={{ marginTop: '8px' }}>
             Get a Free Quote
+          </Link>
+          <Link to="/admin/login" className="navbar__mobile-admin-btn" id="mobile-admin-btn">
+            <FaLock size={13} />
+            Admin Panel
           </Link>
         </nav>
       </div>

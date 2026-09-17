@@ -176,3 +176,50 @@
   .navbar__hamburger { display: flex; }
   .navbar__mobile { display: block; }
 }
+
+/* ── Admin Button (desktop) ── */
+.navbar__admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--gray-500);
+  border: 1.5px solid var(--gray-200);
+  text-decoration: none;
+  background: transparent;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.navbar__admin-btn:hover {
+  color: var(--primary-600);
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+}
+
+/* ── Admin Button (mobile drawer) ── */
+.navbar__mobile-admin-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--gray-500);
+  border: 1.5px solid var(--gray-200);
+  text-decoration: none;
+  background: transparent;
+  margin-top: 4px;
+  transition: all var(--transition-fast);
+}
+
+.navbar__mobile-admin-btn:hover {
+  color: var(--primary-600);
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+}
